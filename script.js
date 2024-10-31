@@ -112,7 +112,7 @@
         modalClose.addEventListener('click', () => {
             modal.style.display = 'none';
         });
-        
+
         // Pumpkin carving animation
         const carveButton = document.getElementById('carve-button');
         const pumpkin = document.getElementById('pumpkin');
@@ -128,4 +128,17 @@
             setTimeout(() => {
                 pumpkin.style.boxShadow = '0 0 20px 10px rgba(255, 102, 0, 0.5)';
             }, 500);
+        });
+
+        // Blog card interactivity
+        const blogCards = document.querySelectorAll('.blog-card');
+        blogCards.forEach(card => {
+            const readMore = card.querySelector('.read-more');
+            const content = card.querySelector('.blog-content');
+            readMore.addEventListener('click', (e) => {
+                e.stopPropagation();
+                content.style.display = content.style.display === 'none' ? 'block' : 'none';
+                readMore.textContent = content.style.display === 'none' ? 'Read More' : 'Read Less';
+                playRandomScareSound();
+            });
         });
