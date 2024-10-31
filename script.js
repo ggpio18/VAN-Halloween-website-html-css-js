@@ -68,3 +68,21 @@
                 showPopupScare();
             }
         }, 10000);
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date();
+            const halloween = new Date(now.getFullYear(), 9, 31); // Month is 0-indexed
+            if (now > halloween) {
+                halloween.setFullYear(halloween.getFullYear() + 1);
+            }
+            const timeLeft = halloween - now;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s until Halloween`;
+        }
+
+        setInterval(updateCountdown, 1000);
