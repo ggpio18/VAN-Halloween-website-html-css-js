@@ -112,3 +112,20 @@
         modalClose.addEventListener('click', () => {
             modal.style.display = 'none';
         });
+        
+        // Pumpkin carving animation
+        const carveButton = document.getElementById('carve-button');
+        const pumpkin = document.getElementById('pumpkin');
+        const leftEye = document.getElementById('left-eye');
+        const rightEye = document.getElementById('right-eye');
+        const mouth = document.getElementById('mouth');
+
+        carveButton.addEventListener('click', () => {
+            leftEye.style.clipPath = 'polygon(50% 0%, 0% 100%, 100% 100%)';
+            rightEye.style.clipPath = 'polygon(50% 0%, 0% 100%, 100% 100%)';
+            mouth.style.clipPath = 'polygon(20% 0%, 0% 100%, 100% 100%, 80% 0%)';
+            
+            setTimeout(() => {
+                pumpkin.style.boxShadow = '0 0 20px 10px rgba(255, 102, 0, 0.5)';
+            }, 500);
+        });
