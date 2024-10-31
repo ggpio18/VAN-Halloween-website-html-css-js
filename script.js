@@ -13,3 +13,33 @@
         cursor.appendChild(svg);
     }
 });
+
+        // Random scare sound
+        const scareAudios = [
+            'https://freesound.org/data/previews/415/415209_5121236-lq.mp3',
+            'https://freesound.org/data/previews/388/388285_7255534-lq.mp3',
+            'https://freesound.org/data/previews/463/463303_9657844-lq.mp3'
+        ];
+
+        function playRandomScareSound() {
+            const audio = new Audio(scareAudios[Math.floor(Math.random() * scareAudios.length)]);
+            audio.play();
+        }
+
+        // Play scare sound randomly
+        setInterval(() => {
+            if (Math.random() < 0.1) { // 10% chance every 5 seconds
+                playRandomScareSound();
+            }
+        }, 5000);
+
+        // Flickering text effect
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mouseover', () => {
+                card.style.animation = 'flicker 0.5s infinite';
+            });
+            card.addEventListener('mouseout', () => {
+                card.style.animation = 'none';
+            });
+        });
