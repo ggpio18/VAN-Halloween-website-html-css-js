@@ -242,3 +242,37 @@ h1 {
     text-decoration: underline;
     cursor: pointer;
 }
+nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+nav ul li {
+    margin: 0 15px;
+}
+nav ul li a {
+    color: #ff6600;
+    text-decoration: none;
+    font-family: 'Creepster', cursive;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+nav ul li a:hover {
+    color: #ff9900;
+}
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ff6600;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
