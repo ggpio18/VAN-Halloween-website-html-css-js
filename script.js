@@ -86,3 +86,29 @@
         }
 
         setInterval(updateCountdown, 1000);
+
+        // Interactive card elements
+        cards.forEach(card => {
+            const hiddenContent = card.querySelector('.hidden-content');
+            card.addEventListener('click', () => {
+                hiddenContent.style.display = hiddenContent.style.display === 'none' ? 'block' : 'none';
+                playRandomScareSound();
+            });
+        });
+
+        // Gallery modal
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-content');
+        const modalClose = document.getElementById('modal-close');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                modalImg.src = item.style.backgroundImage.slice(4, -1).replace(/"/g, "");
+            });
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
