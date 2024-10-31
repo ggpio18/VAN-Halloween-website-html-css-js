@@ -43,3 +43,28 @@
                 card.style.animation = 'none';
             });
         });
+        // Add bats
+        const batsContainer = document.getElementById('bats-container');
+        for (let i = 0; i < 5; i++) {
+            const bat = document.createElement('div');
+            bat.textContent = '🦇';
+            bat.className = 'bat';
+            bat.style.animationDelay = `${i * 2}s`;
+            batsContainer.appendChild(bat);
+        }
+
+        // Pop-up scares
+        function showPopupScare() {
+            const popupScare = document.querySelector('.popup-scare');
+            popupScare.style.display = 'block';
+            playRandomScareSound();
+            setTimeout(() => {
+                popupScare.style.display = 'none';
+            }, 1000);
+        }
+
+        setInterval(() => {
+            if (Math.random() < 0.2) { // 20% chance every 10 seconds
+                showPopupScare();
+            }
+        }, 10000);
